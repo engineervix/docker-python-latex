@@ -1,6 +1,6 @@
-FROM python:3.10-bullseye
+FROM python:3.10-slim-bullseye
 LABEL maintainer="victormiti@umusebo.com"
-LABEL description="Python 3.10-bullseye plus texlive and pandoc"
+LABEL description="Python 3.10-slim-bullseye plus texlive and pandoc"
 
 RUN set -eux; \
     apt-get update; \
