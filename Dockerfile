@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.11-slim-bullseye
 LABEL maintainer="victormiti@umusebo.com"
 LABEL description="Python 3.10-slim-bullseye plus texlive and pandoc"
 
