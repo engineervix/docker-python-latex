@@ -25,7 +25,7 @@ jobs:
           images: engineervix/python-latex
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@e27bcee4eb9e7b4bc168418e3364c4482120393a
+        uses: docker/build-push-action@f9efed53cc1b0364ba947400ac02042bbbaac7fc
         with:
           context: .
           push: true
