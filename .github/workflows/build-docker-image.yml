@@ -1,4 +1,4 @@
-name: Build Docker image
+name: Build Docker images
 
 on:
   push:
@@ -9,10 +9,19 @@ on:
 jobs:
 
   build:
+    runs-on: ubuntu-22.04
 
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag python-latex:$(date +%s)
+      shell: bash
+      run: |
+        docker build . \
+          --file Dockerfile \
+          --tag python-latex:${{ matrix.python-version }}-$(date +%s) \
+          --build-arg PYTHON_VERSION=${{ matrix.python-version }}
