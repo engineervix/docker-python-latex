@@ -1,5 +1,8 @@
 # python-latex
 
+[![Build Docker images](https://github.com/engineervix/docker-python-latex/actions/workflows/build-docker-image.yml/badge.svg)](https://github.com/engineervix/docker-python-latex/actions/workflows/build-docker-image.yml)
+[![Publish Docker images](https://github.com/engineervix/docker-python-latex/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/engineervix/docker-python-latex/actions/workflows/publish-docker-image.yml)
+
 > A Docker image to ease building Python applications that depend on [LaTeX](https://www.latex-project.org/)
 
 ## Features
