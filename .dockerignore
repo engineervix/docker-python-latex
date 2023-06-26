@@ -1,1 +1,8 @@
 .github/
+node_modules/
+utils/
+requirements.txt
+.cz.toml
+CHANGELOG.md
+package.json
+package-lock.json
