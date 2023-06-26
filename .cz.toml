@@ -1,0 +1,6 @@
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.2.0"
+tag_format = "v$major.$minor.$patch"
+annotated_tag = true
+update_changelog_on_bump = false
