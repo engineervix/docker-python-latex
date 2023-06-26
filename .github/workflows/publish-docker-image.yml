@@ -38,7 +38,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: engineervix/python-latex/${{ matrix.python-version }}
+          tags: engineervix/python-latex:${{ matrix.python-version }}
           labels: |
             "org.opencontainers.image.title": "python-latex",
             "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-bullseye plus texlive and pandoc",
