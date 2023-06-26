@@ -21,18 +21,28 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Get current timestamp
+        id: timestamp
+        run: echo "::set-output name=timestamp::$(date +'%Y-%m-%dT%H:%M:%SZ')"
       
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@dbbf01822bb698575d92e1ee5b9229d58745b0c6
-        with:
-          images: engineervix/python-latex
-      
+      - name: Get git commit SHA
+        id: git_sha
+        run: echo "::set-output name=git_sha::$(git rev-parse HEAD)"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@f9efed53cc1b0364ba947400ac02042bbbaac7fc
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ matrix.python-version }}
+          labels: |
+            "org.opencontainers.image.title": "python-latex",
+            "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-bullseye plus texlive and pandoc",
+            "org.opencontainers.image.url": "https://github.com/engineervix/docker-python-latex",
+            "org.opencontainers.image.source": "https://github.com/engineervix/docker-python-latex",
+            "org.opencontainers.image.version": "${{ matrix.python-version }}",
+            "org.opencontainers.image.licenses": "MIT"
+            "org.opencontainers.image.created": "${{ steps.timestamp.outputs.timestamp }}",
+            "org.opencontainers.image.revision": "${{ steps.git_sha.outputs.git_sha }}"
           build-args: PYTHON_VERSION=${{ matrix.python-version }}
