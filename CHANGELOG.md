@@ -4,6 +4,19 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.3.1](https://github.com/engineervix/docker-python-latex/compare/v0.3.0...v0.3.1) (2023-06-27)
+
+
+### 👷 CI/CD
+
+* allow for running publishing workflow manually from the Actions tab ([8cb0d4e](https://github.com/engineervix/docker-python-latex/commit/8cb0d4e771e19f6c8ec36f746f914560c8e4ce56))
+
+
+### 🐛 Bug Fixes
+
+* another attempt to correct the tagging ([3eed45a](https://github.com/engineervix/docker-python-latex/commit/3eed45ac37c4847c96a0e6d8d7cf6ae82c41179a))
+* specify project before tagging ([050b6c4](https://github.com/engineervix/docker-python-latex/commit/050b6c44b92ad99f54623917382a12c69adc674c))
+
 ## [v0.3.0](https://github.com/engineervix/docker-python-latex/compare/v0.2.0...v0.3.0) (2023-06-26)
 
 
