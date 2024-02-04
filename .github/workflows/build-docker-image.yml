@@ -2,14 +2,13 @@ name: Build Docker images
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     tags:
       - "v*"
 
 jobs:
-
   build:
     runs-on: ubuntu-22.04
 
@@ -18,15 +17,23 @@ jobs:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Check out the repo
+        uses: actions/checkout@v4
 
-    - name: Build the Docker image
-      shell: bash
-      run: |
-        docker build . \
-          --file Dockerfile \
-          --tag python-latex:${{ matrix.python-version }}-$(date +'%Y%m%d%H%M%S') \
-          --build-arg PYTHON_VERSION=${{ matrix.python-version }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build the Docker image
+        shell: bash
+        run: |
+          docker buildx build . \
+            --platform linux/amd64,linux/arm64 \
+            --file Dockerfile \
+            --tag python-latex:${{ matrix.python-version }}-$(date +'%Y%m%d%H%M%S') \
+            --build-arg PYTHON_VERSION=${{ matrix.python-version }}
 
   # Creates a GitHub Release when the build job succeeds, and only on pushes to tags.
   release:
