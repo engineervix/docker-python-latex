@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.4.0](https://github.com/engineervix/docker-python-latex/compare/v0.3.1...v0.4.0) (2024-02-04)
+
+
+### 🚀 Features
+
+* add multi-arch support ([7254572](https://github.com/engineervix/docker-python-latex/commit/72545721fcff677a1b1a50bf06127fdc80ffa869))
+
 ## [v0.3.1](https://github.com/engineervix/docker-python-latex/compare/v0.3.0...v0.3.1) (2023-06-27)
 
 
