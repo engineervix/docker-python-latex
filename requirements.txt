@@ -1,1 +1,1 @@
-commitizen==3.18.1
+commitizen==3.20.0
