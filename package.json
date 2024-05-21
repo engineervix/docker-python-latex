@@ -74,7 +74,7 @@
     "node": "^18 <19"
   },
   "volta": {
-    "node": "18.19.1"
+    "node": "18.20.3"
   },
   "devDependencies": {
     "standard-version": "^9.5.0"
