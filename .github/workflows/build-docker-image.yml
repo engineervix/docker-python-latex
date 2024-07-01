@@ -34,7 +34,7 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             --file Dockerfile \
             --tag python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
-            --build-arg PYTHON_VERSION=${{ matrix.python-version }}
+            --build-arg PYTHON_VERSION=${{ matrix.python-version }} \
             --build-arg DEBIAN_VERSION=${{ matrix.debian-version }}
 
   # Creates a GitHub Release when the build job succeeds, and only on pushes to tags.

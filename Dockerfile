@@ -3,7 +3,7 @@ ARG PYTHON_VERSION
 
 FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}
 LABEL maintainer="victormiti@umusebo.com"
-LABEL version="${PYTHON_VERSION}"
+LABEL version="${PYTHON_VERSION}-slim-${DEBIAN_VERSION}"
 LABEL description="Python ${PYTHON_VERSION}-slim-${DEBIAN_VERSION} plus texlive and pandoc"
 
 RUN set -eux; \
