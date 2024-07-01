@@ -71,10 +71,7 @@
     }
   },
   "engines": {
-    "node": "^18 <19"
-  },
-  "volta": {
-    "node": "18.19.1"
+    "node": "^22 <23"
   },
   "devDependencies": {
     "standard-version": "^9.5.0"
