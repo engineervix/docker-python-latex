@@ -10,11 +10,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        debian-version: ["bullseye", "bookworm"]
 
     steps:
       - name: Check out the repo
@@ -32,8 +33,9 @@ jobs:
           docker buildx build . \
             --platform linux/amd64,linux/arm64 \
             --file Dockerfile \
-            --tag python-latex:${{ matrix.python-version }}-$(date +'%Y%m%d%H%M%S') \
+            --tag python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
             --build-arg PYTHON_VERSION=${{ matrix.python-version }}
+            --build-arg DEBIAN_VERSION=${{ matrix.debian-version }}
 
   # Creates a GitHub Release when the build job succeeds, and only on pushes to tags.
   release:
@@ -44,7 +46,7 @@ jobs:
 
     if: needs.build.result == 'success' && startsWith( github.ref, 'refs/tags/v' )
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Check out the repo

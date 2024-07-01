@@ -10,10 +10,11 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        debian-version: ["bullseye", "bookworm"]
 
     steps:
       - name: Check out the repo
@@ -45,14 +46,16 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: engineervix/python-latex:${{ matrix.python-version }}
+          tags: engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.python-version }}
           labels: |
             "org.opencontainers.image.title": "python-latex",
-            "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-bullseye plus texlive and pandoc",
+            "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-${{ matrix.debian-version }} plus texlive and pandoc",
             "org.opencontainers.image.url": "https://github.com/engineervix/docker-python-latex",
             "org.opencontainers.image.source": "https://github.com/engineervix/docker-python-latex",
-            "org.opencontainers.image.version": "${{ matrix.python-version }}",
+            "org.opencontainers.image.version": "${{ matrix.python-version }}-slim-${{ matrix.python-version }}",
             "org.opencontainers.image.licenses": "MIT"
             "org.opencontainers.image.created": "${{ steps.timestamp.outputs.timestamp }}",
             "org.opencontainers.image.revision": "${{ steps.git_sha.outputs.git_sha }}"
-          build-args: PYTHON_VERSION=${{ matrix.python-version }}
+          build-args: |
+            PYTHON_VERSION=${{ matrix.python-version }}
+            DEBIAN_VERSION=${{ matrix.debian-version }}
