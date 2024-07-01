@@ -4,6 +4,18 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.1](https://github.com/engineervix/docker-python-latex/compare/v1.0.0...v1.0.1) (2024-07-01)
+
+
+### 📝 Docs
+
+* update README ([4b0f00c](https://github.com/engineervix/docker-python-latex/commit/4b0f00c8731eb9c2bebc395475e24c5277b9a505))
+
+
+### 🐛 Bug Fixes
+
+* use correct label and ensure --build-arg is used which each argument ([4a0d310](https://github.com/engineervix/docker-python-latex/commit/4a0d3105bf061b13993d6b306677c833e6402612))
+
 ## [v1.0.0](https://github.com/engineervix/docker-python-latex/compare/v0.4.0...v1.0.0) (2024-07-01)
 
 
