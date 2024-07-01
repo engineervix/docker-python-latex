@@ -4,6 +4,32 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0](https://github.com/engineervix/docker-python-latex/compare/v0.4.0...v1.0.0) (2024-07-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* tagging format has changed in order to maintain similarity with official python images
+
+### 👷 CI/CD
+
+* update actions/checkout action to v4 ([#16](https://github.com/engineervix/docker-python-latex/issues/16)) ([be4ed1a](https://github.com/engineervix/docker-python-latex/commit/be4ed1a286b6c23330dfbc6a156918c650dfce8b))
+* update actions/setup-node action to v4 ([#17](https://github.com/engineervix/docker-python-latex/issues/17)) ([ab2c2f8](https://github.com/engineervix/docker-python-latex/commit/ab2c2f8280e26e692ae921a005302e6c884359dc))
+* update softprops/action-gh-release action to v2 ([#23](https://github.com/engineervix/docker-python-latex/issues/23)) ([d85dea8](https://github.com/engineervix/docker-python-latex/commit/d85dea8adcf56aa5c512fed0028bfb5a7db61c9b))
+
+
+### ⚙️ Build System
+
+* **deps-dev:** update dependency commitizen to v3.18.1 ([#22](https://github.com/engineervix/docker-python-latex/issues/22)) ([1f1b9dc](https://github.com/engineervix/docker-python-latex/commit/1f1b9dcc80ad7e9da48640a95655f087070d90bd))
+* **deps:** update dependency commitizen to v3.14.1 ([#14](https://github.com/engineervix/docker-python-latex/issues/14)) ([8a3dd10](https://github.com/engineervix/docker-python-latex/commit/8a3dd107048fd54faa9c5edfd3c5c84355e133c6))
+* **deps:** update node.js to v18.19.1 ([#21](https://github.com/engineervix/docker-python-latex/issues/21)) ([9942450](https://github.com/engineervix/docker-python-latex/commit/994245029083c0f29eb87597b41ea2561f4767c2))
+* update node.js to v18.19.0 ([#15](https://github.com/engineervix/docker-python-latex/issues/15)) ([2554df0](https://github.com/engineervix/docker-python-latex/commit/2554df051bebc26435a315c62e80c3d89e87e2bc))
+
+
+### 🚀 Features
+
+* add Python 3.12 and Debian Bookworm support ([d7122b8](https://github.com/engineervix/docker-python-latex/commit/d7122b86c72eb6335a0b1436e221fbcb98bac3db))
+
 ## [v0.4.0](https://github.com/engineervix/docker-python-latex/compare/v0.3.1...v0.4.0) (2024-02-04)
 
 
