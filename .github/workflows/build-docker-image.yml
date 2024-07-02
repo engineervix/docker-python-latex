@@ -33,7 +33,7 @@ jobs:
           docker buildx build . \
             --platform linux/amd64,linux/arm64 \
             --file Dockerfile \
-            --tag python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
+            --tag engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
             --build-arg PYTHON_VERSION=${{ matrix.python-version }} \
             --build-arg DEBIAN_VERSION=${{ matrix.debian-version }}
 

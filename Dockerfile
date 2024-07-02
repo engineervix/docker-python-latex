@@ -1,10 +1,10 @@
-ARG DEBIAN_VERSION
 ARG PYTHON_VERSION
+ARG DEBIAN_VERSION
 
 FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}
-LABEL maintainer="victormiti@umusebo.com"
+LABEL maintainer="hello@victor.co.zm"
 LABEL version="${PYTHON_VERSION}-slim-${DEBIAN_VERSION}"
-LABEL description="Python ${PYTHON_VERSION}-slim-${DEBIAN_VERSION} plus texlive and pandoc"
+LABEL description="Python ${PYTHON_VERSION}-slim-${DEBIAN_VERSION} plus texlive-full and pandoc"
 
 RUN set -eux; \
     apt-get update; \
