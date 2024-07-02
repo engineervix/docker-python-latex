@@ -49,7 +49,7 @@ jobs:
           tags: engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}
           labels: |
             "org.opencontainers.image.title": "python-latex",
-            "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-${{ matrix.debian-version }} plus texlive-full and pandoc",
+            "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-${{ matrix.debian-version }} plus texlive-full (without the docs) and pandoc",
             "org.opencontainers.image.url": "https://github.com/engineervix/docker-python-latex",
             "org.opencontainers.image.source": "https://github.com/engineervix/docker-python-latex",
             "org.opencontainers.image.version": "${{ matrix.python-version }}-slim-${{ matrix.debian-version }}",
