@@ -4,6 +4,30 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.0](https://github.com/engineervix/docker-python-latex/compare/v2.0.0...v2.1.0) (2024-07-02)
+
+
+### 🚀 Features
+
+* texlive-full without all the beef! ([7b0198e](https://github.com/engineervix/docker-python-latex/commit/7b0198e9dc59189262253fc675d191df6fdb05ca))
+
+
+### 👷 CI/CD
+
+* specify platforms in docker/setup-buildx-action ([e5085da](https://github.com/engineervix/docker-python-latex/commit/e5085da400f535b0decf321049904bf468160c5d))
+
+
+### ⚙️ Build System
+
+* just work with the usual archs: amd64 & arm* ([1f489ed](https://github.com/engineervix/docker-python-latex/commit/1f489edc622eb25459ba332d7ac40d4c6124bb29))
+
+
+### ♻️ Code Refactoring
+
+* maintain linux/amd64 & linux/arm64 only, for now ([b6a3f35](https://github.com/engineervix/docker-python-latex/commit/b6a3f35b43d4b41de5a1a276a1679c3a20818cda))
+* remove the linux/i386 arch, because the build fails ([500e4f0](https://github.com/engineervix/docker-python-latex/commit/500e4f02c156294f4e8af396c3123b326c5111eb))
+* simplify things and just install everything, for now ([00454a6](https://github.com/engineervix/docker-python-latex/commit/00454a6525180c3325754273c11bb8df61353f39))
+
 ## [v2.0.0](https://github.com/engineervix/docker-python-latex/compare/v1.0.3...v2.0.0) (2024-07-02)
 
 
