@@ -1,6 +1,6 @@
 {
   "name": "python-tex",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Docker image to ease building Python applications that depend on LaTeX.",
   "author": "Victor Miti <https://github.com/engineervix>",
   "license": "MIT",
