@@ -46,13 +46,13 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.python-version }}
+          tags: engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}
           labels: |
             "org.opencontainers.image.title": "python-latex",
             "org.opencontainers.image.description": "Python ${{ matrix.python-version }}-slim-${{ matrix.debian-version }} plus texlive and pandoc",
             "org.opencontainers.image.url": "https://github.com/engineervix/docker-python-latex",
             "org.opencontainers.image.source": "https://github.com/engineervix/docker-python-latex",
-            "org.opencontainers.image.version": "${{ matrix.python-version }}-slim-${{ matrix.python-version }}",
+            "org.opencontainers.image.version": "${{ matrix.python-version }}-slim-${{ matrix.debian-version }}",
             "org.opencontainers.image.licenses": "MIT"
             "org.opencontainers.image.created": "${{ steps.timestamp.outputs.timestamp }}",
             "org.opencontainers.image.revision": "${{ steps.git_sha.outputs.git_sha }}"
