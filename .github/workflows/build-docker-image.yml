@@ -14,10 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        # python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        python-version: ["3.12"]
-        # debian-version: ["bullseye", "bookworm"]
-        debian-version: ["bookworm"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        debian-version: ["bullseye", "bookworm"]
 
     steps:
       - name: Check out the repo
@@ -33,7 +31,7 @@ jobs:
         shell: bash
         run: |
           docker buildx build . \
-            --platform linux/amd64,linux/arm64 \
+            --platform linux/amd64,linux/i386,linux/arm64,linux/arm/v5,linux/arm/v6,linux/arm/v7,linux/ppc64le,linux/s390x \
             --file Dockerfile \
             --tag engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
             --build-arg PYTHON_VERSION=${{ matrix.python-version }} \

@@ -16,7 +16,7 @@ LABEL description="Python ${PYTHON_VERSION}-slim-${DEBIAN_VERSION} plus texlive-
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-    # texlive-full \
+    texlive-full \
     pandoc \
     ; \
     rm -rf /var/lib/apt/lists/*
