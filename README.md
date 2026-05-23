@@ -7,9 +7,9 @@
 
 ## Features
 
-- Python 3.8 - 3.12, based on the official `slim-*` images, where `*` includes:
-  - `bullseye`
+- Python 3.10 - 3.14, based on the official `slim-*` images, where `*` includes:
   - `bookworm`
+  - `trixie` (Python 3.12+)
 - LaTeX environment with `texlive-full`
 - [Pandoc](https://pandoc.org/) for converting from one markup format to another
 

@@ -1,5 +1,9 @@
 name: Build Docker images
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   pull_request:
     branches: ["main"]
@@ -14,8 +18,15 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        debian-version: ["bullseye", "bookworm"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        debian-version: ["bookworm"]
+        include:
+          - python-version: "3.12"
+            debian-version: "trixie"
+          - python-version: "3.13"
+            debian-version: "trixie"
+          - python-version: "3.14"
+            debian-version: "trixie"
 
     steps:
       - name: Check out the repo
@@ -37,7 +48,9 @@ jobs:
             --file Dockerfile \
             --tag engineervix/python-latex:${{ matrix.python-version }}-slim-${{ matrix.debian-version }}-$(date +'%Y%m%d%H%M%S') \
             --build-arg PYTHON_VERSION=${{ matrix.python-version }} \
-            --build-arg DEBIAN_VERSION=${{ matrix.debian-version }}
+            --build-arg DEBIAN_VERSION=${{ matrix.debian-version }} \
+            --cache-from type=gha,scope=${{ matrix.python-version }}-${{ matrix.debian-version }} \
+            --cache-to type=gha,mode=max,scope=${{ matrix.python-version }}-${{ matrix.debian-version }}
 
   # Creates a GitHub Release when the build job succeeds, and only on pushes to tags.
   release:
@@ -70,13 +83,13 @@ jobs:
         id: get_version
         run: |
           echo "${{ github.ref }}"
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+          echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
       - name: Generate Release Title
         id: get_release_title
         shell: bash
         run: |
           export TODAY="($(TZ=Africa/Lusaka date --iso))"
-          echo ::set-output name=RELEASE_NAME::"${{ steps.get_version.outputs.VERSION }} $TODAY"
+          echo "RELEASE_NAME=${{ steps.get_version.outputs.VERSION }} $TODAY" >> $GITHUB_OUTPUT
       - name: Extract Release Notes
         # This creates a file LATEST_RELEASE_NOTES.md in the parent directory (../)
         shell: bash

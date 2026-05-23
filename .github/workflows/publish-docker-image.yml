@@ -13,8 +13,15 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        debian-version: ["bullseye", "bookworm"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        debian-version: ["bookworm"]
+        include:
+          - python-version: "3.12"
+            debian-version: "trixie"
+          - python-version: "3.13"
+            debian-version: "trixie"
+          - python-version: "3.14"
+            debian-version: "trixie"
 
     steps:
       - name: Check out the repo
@@ -34,11 +41,11 @@ jobs:
 
       - name: Get current timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(date +'%Y-%m-%dT%H:%M:%SZ')"
+        run: echo "timestamp=$(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: Get git commit SHA
         id: git_sha
-        run: echo "::set-output name=git_sha::$(git rev-parse HEAD)"
+        run: echo "git_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -59,3 +66,5 @@ jobs:
           build-args: |
             PYTHON_VERSION=${{ matrix.python-version }}
             DEBIAN_VERSION=${{ matrix.debian-version }}
+          cache-from: type=gha,scope=${{ matrix.python-version }}-${{ matrix.debian-version }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.python-version }}-${{ matrix.debian-version }}
