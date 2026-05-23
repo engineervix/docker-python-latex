@@ -2,12 +2,12 @@
 
 """release.py
 
-to help in managing releases using `standard-version`_.
+to help in managing releases using `commit-and-tag-version`_.
 
 Usage in this project:
     python misc/release.py [bump | notes]
 
-.. _standard-version: https://github.com/conventional-changelog/standard-version
+.. _commit-and-tag-version: https://github.com/absolute-version/commit-and-tag-version
 """
 
 import argparse
@@ -42,8 +42,8 @@ def execute_bump_hack(branch, is_first_release=False, major=False):
     and since I didn't have time to write my own updater for python files and toml files,
     I have to make the two work together!
 
-    This requires standard-version to be installed in your project:
-    ``npm i -D standard-version``
+    This requires commit-and-tag-version to be installed in your project:
+    ``npm i -D commit-and-tag-version``
     If you're setting it up for the first time on another project, you will probably
     encounter problems generating the entire changelog. See how Łukasz Nojek came up
     with a hack to deal with this:
@@ -53,7 +53,7 @@ def execute_bump_hack(branch, is_first_release=False, major=False):
 
     1. cz bump --files-only
     2. git add pyproject.toml and other_files specified in pyproject.toml
-    3. standard-version --commit-all --release-as <result from cz if not none>
+    3. commit-and-tag-version --commit-all --release-as <result from cz if not none>
     4. git push --follow-tags origin [branch]
     """
     if is_first_release:
@@ -156,7 +156,7 @@ def release(args=None):
 
     parser = argparse.ArgumentParser(
         prog="release",
-        description="to help in managing releases using standard-version",
+        description="to help in managing releases using commit-and-tag-version",
     )
 
     parser.add_argument(

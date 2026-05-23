@@ -6,9 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "release": "standard-version"
+    "release": "commit-and-tag-version"
   },
-  "standard-version": {
+  "commit-and-tag-version": {
     "header": "# Changelog\n\nAll notable changes to this project will be documented here.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n",
     "types": [
       {
@@ -71,9 +71,9 @@
     }
   },
   "engines": {
-    "node": "^22 <23"
+    "node": "^22 || ^24"
   },
   "devDependencies": {
-    "standard-version": "^9.5.0"
+    "commit-and-tag-version": "^12.0.0"
   }
 }
