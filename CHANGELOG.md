@@ -4,6 +4,17 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.1](https://github.com/engineervix/docker-python-latex/compare/v2.1.0...v2.1.1) (2026-05-27)
+
+
+### 👷 CI/CD
+
+* **deps:** update actions/checkout action to v5 ([#30](https://github.com/engineervix/docker-python-latex/issues/30)) ([f030af4](https://github.com/engineervix/docker-python-latex/commit/f030af4cb879ef673fcd3622069ff8fc8e11a99a))
+* **deps:** update actions/setup-node action to v5 ([#31](https://github.com/engineervix/docker-python-latex/issues/31)) ([8fa6bf7](https://github.com/engineervix/docker-python-latex/commit/8fa6bf7228a627f36c5109ab26df00fd14a1a582))
+* **deps:** update actions/setup-python action to v6 ([#32](https://github.com/engineervix/docker-python-latex/issues/32)) ([4f2e310](https://github.com/engineervix/docker-python-latex/commit/4f2e3102324fadc3e4b445056b6ac41d7f200acd))
+* **deps:** update dependency commitizen to v4 ([#28](https://github.com/engineervix/docker-python-latex/issues/28)) ([bc8e2b0](https://github.com/engineervix/docker-python-latex/commit/bc8e2b01674ad68a5124932f98399183f361a013))
+* update matrix, fix set-output, add layer caching and concurrency ([ae40b14](https://github.com/engineervix/docker-python-latex/commit/ae40b140eab4034331a3b211aff29aa5ac213d2d))
+
 ## [v2.1.0](https://github.com/engineervix/docker-python-latex/compare/v2.0.0...v2.1.0) (2024-07-02)
 
 
